@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query, HTTPException
 from typing import Optional
 from models.models import OrderCreate
-from controllers.orders import create_order, get_user_orders
+from controllers.orders import create_order, get_user_orders_controller
 
 router = APIRouter()
 
@@ -15,4 +15,4 @@ async def get_user_orders(
     limit: Optional[int] = Query(10, ge=1, le=100),
     offset: Optional[int] = Query(0, ge=0)
 ):
-    return await get_user_orders(user_id, limit, offset)
+    return await get_user_orders_controller(user_id, limit, offset)

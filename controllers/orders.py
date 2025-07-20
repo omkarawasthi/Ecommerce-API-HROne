@@ -24,7 +24,7 @@ async def create_order(order: OrderCreate):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-async def get_user_orders(user_id, limit, offset):
+async def get_user_orders_controller(user_id, limit, offset):
     try:
         query_filter = {"userId": user_id}
         total_count = db.orders.count_documents(query_filter)
