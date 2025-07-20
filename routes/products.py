@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Query, HTTPException
 from typing import Optional
 from models.models import ProductCreate
-from controllers.products import create_product, list_products
+from controllers.products import create_product, list_products_controllers
 
 router = APIRouter()
 
@@ -16,4 +16,4 @@ async def list_products(
     limit: Optional[int] = Query(10, ge=1, le=100),
     offset: Optional[int] = Query(0, ge=0)
 ):
-    return await list_products(name, size, limit, offset)
+    return await list_products_controllers(name, size, limit, offset)

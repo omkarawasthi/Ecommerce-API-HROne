@@ -13,7 +13,7 @@ async def create_product(product: ProductCreate):
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
 
-async def list_products(name, size, limit, offset):
+async def list_products_controllers(name, size, limit, offset):
     try:
         query_filter = {}
 
